@@ -86,7 +86,6 @@ with st.container():
     st.write("##")
     image_column, text_column = st.columns((1, 2))
     with image_column:
-        st.image(img_lottie_animation)
     with text_column:
         st.subheader("Integrate Lottie Animations Inside Your Streamlit App")
       
