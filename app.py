@@ -88,14 +88,6 @@ with st.container():
    
 
 with st.container():
-    with text_column:
-        st.subheader("How To Add A Contact Form To Your Streamlit App")
-        st.write(
-            """
-            Want to add a contact form to your Streamlit website?
-            In this video, I'm going to show you how to implement a contact form in your Streamlit app using the free service ‘Form Submit’.
-            """)
-
         st.markdown("<div>Teachable Machine Image Model</div>", unsafe_allow_html=True)
         st.markdown("<button type='button' onclick='init()'>Start</button>", unsafe_allow_html=True)
         st.markdown("<div id='webcam-container'></div>", unsafe_allow_html=True)
