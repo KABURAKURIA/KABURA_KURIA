@@ -22,8 +22,8 @@ local_css("style/style.css")
 
 # ---- LOAD ASSETS ----
 lottie_coding = load_lottieurl("https://lottie.host/c9c9f2f9-6c92-450f-987e-14d3f6e70b7e/lePlzenP35.json")
-img_contact_form = Image.open("images/yt_contact_form.png")
-img_lottie_animation = Image.open("images/yt_lottie_animation.png")
+img_contact_form = Image.open("3.png")
+img_lottie_animation = Image.open("4.png")
 
 # ---- HEADER SECTION ----
 with st.container():
