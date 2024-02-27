@@ -88,11 +88,13 @@ with st.container():
    
 
 with st.container():
+# Render the HTML content with image uploader
         st.markdown("<div>Teachable Machine Image Model</div>", unsafe_allow_html=True)
+        st.markdown("<input type='file' id='imageUpload' accept='.jpg, .jpeg, .png' onchange='handleImageUpload(event)'/>", unsafe_allow_html=True)
         st.markdown("<button type='button' onclick='init()'>Start</button>", unsafe_allow_html=True)
         st.markdown("<div id='webcam-container'></div>", unsafe_allow_html=True)
         st.markdown("<div id='label-container'></div>", unsafe_allow_html=True)
-
+        
         # Add the JavaScript code as a string
         script = """
         <script src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js'></script>
@@ -102,6 +104,20 @@ with st.container():
             const URL = 'https://teachablemachine.withgoogle.com/models/pQe5QZukx/';
         
             let model, webcam, labelContainer, maxPredictions;
+        
+            // Function to handle image upload
+            function handleImageUpload(event) {
+                const file = event.target.files[0];
+                const reader = new FileReader();
+                reader.onload = async function(e) {
+                    const img = new Image();
+                    img.src = e.target.result;
+                    img.onload = function() {
+                        st.image(img, caption='Uploaded Image', use_column_width=true);
+                    };
+                };
+                reader.readAsDataURL(file);
+            }
         
             // Load the image model and setup the webcam
             async function init() {
@@ -147,6 +163,7 @@ with st.container():
         
         # Render the JavaScript code
         st.markdown(script, unsafe_allow_html=True)
+
         
         st.markdown("[Watch Video...](https://youtu.be/FOULV9Xij_8)")
 
