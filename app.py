@@ -146,7 +146,6 @@ with st.container():
             }
         </script>
         """, unsafe_allow_html=True)
-        st.markdown("[Watch Video...](https://youtu.be/TXSOitGoINE)")
 with st.container():
     image_column, text_column = st.columns((1, 2))
     with image_column:
