@@ -84,12 +84,8 @@ with st.container():
     st.write("---")
     st.header("My Projects")
     st.write("##")
-    image_column, text_column = st.columns((1, 2))
-    with image_column:
     with text_column:
         st.subheader("Integrate Lottie Animations Inside Your Streamlit App")
-      
-
         st.markdown("""
         <div>KABURA EMOTION DETECTOR</div>
         <button type="button" onclick="init()">Start</button>
