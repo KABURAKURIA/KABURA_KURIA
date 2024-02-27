@@ -91,7 +91,7 @@ with st.container():
         # Render the HTML content with image uploader
         st.markdown("<div>Teachable Machine Image Model</div>", unsafe_allow_html=True)
         st.markdown("<input type='file' id='imageUpload' accept='.jpg, .jpeg, .png' onchange='handleImageUpload(event)'/>", unsafe_allow_html=True)
-        st.markdown("<button type='button' onclick='init()'>Start</button>", unsafe_allow_html=True)
+        st.markdown("<button id='startButton' type='button'>Start</button>", unsafe_allow_html=True)
         st.markdown("<div id='webcam-container'></div>", unsafe_allow_html=True)
         st.markdown("<div id='label-container'></div>", unsafe_allow_html=True)
         
@@ -159,11 +159,17 @@ with st.container():
                     labelContainer.childNodes[i].innerHTML = classPrediction;
                 }
             }
+        
+            // Call init() function when the Start button is clicked
+            document.getElementById('startButton').addEventListener('click', function() {
+                init();
+            });
         </script>
         """
         
         # Render the JavaScript code
         st.markdown(script, unsafe_allow_html=True)
+
 
         
         st.markdown("[Watch Video...](https://youtu.be/FOULV9Xij_8)")
