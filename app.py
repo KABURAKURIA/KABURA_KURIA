@@ -88,7 +88,7 @@ with st.container():
    
 
 with st.container():
-# Render the HTML content with image uploader
+        # Render the HTML content with image uploader
         st.markdown("<div>Teachable Machine Image Model</div>", unsafe_allow_html=True)
         st.markdown("<input type='file' id='imageUpload' accept='.jpg, .jpeg, .png' onchange='handleImageUpload(event)'/>", unsafe_allow_html=True)
         st.markdown("<button type='button' onclick='init()'>Start</button>", unsafe_allow_html=True)
@@ -112,8 +112,9 @@ with st.container():
                 reader.onload = async function(e) {
                     const img = new Image();
                     img.src = e.target.result;
-                    img.onload = function() {
-                        st.image(img, caption='Uploaded Image', use_column_width=true);
+                    img.onload = async function() {
+                        // Pass the image to the predict function
+                        await predict(img);
                     };
                 };
                 reader.readAsDataURL(file);
@@ -145,14 +146,14 @@ with st.container():
         
             async function loop() {
                 webcam.update(); // update the webcam frame
-                await predict();
+                await predict(webcam.canvas); // Pass the webcam canvas to the predict function
                 window.requestAnimationFrame(loop);
             }
         
-            // run the webcam image through the image model
-            async function predict() {
+            // Function to run inference on the image
+            async function predict(image) {
                 // predict can take in an image, video or canvas html element
-                const prediction = await model.predict(webcam.canvas);
+                const prediction = await model.predict(image);
                 for (let i = 0; i < maxPredictions; i++) {
                     const classPrediction = prediction[i].className + ': ' + prediction[i].probability.toFixed(2);
                     labelContainer.childNodes[i].innerHTML = classPrediction;
