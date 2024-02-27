@@ -84,9 +84,8 @@ with st.container():
     st.write("---")
     st.header("My Projects")
     st.write("##")
-    with text_column:
-        st.subheader("Integrate Lottie Animations Inside Your Streamlit App")
-        st.markdown("""
+    st.subheader("Integrate Lottie Animations Inside Your Streamlit App")
+    st.markdown("""
         <div>KABURA EMOTION DETECTOR</div>
         <button type="button" onclick="init()">Start</button>
         <div id="webcam-container"></div>
