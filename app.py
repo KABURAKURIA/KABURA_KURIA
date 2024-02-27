@@ -27,7 +27,7 @@ lottie_coding = load_lottieurl("https://lottie.host/c9c9f2f9-6c92-450f-987e-14d3
 # ---- HEADER SECTION ----
 with st.container():
     st.subheader("Hi, I am KABURA KURIA")
-    st.title("A Data Analyst From Germany")
+    st.title("AN IT GENERALIST FROM KENYA")
     st.write(
         "I am passionate about finding ways to use Python, flutter, Cybersec, AI, Animations to create mental health solutions. Currently. i'm working on a small project known as ATUNAFSI ."
     )
