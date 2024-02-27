@@ -1,65 +1,17 @@
-'''
-This code imports several Python libraries:
-
-1. `requests`: This library is used to send HTTP requests to web servers and retrieve data from them. It's commonly used for making API calls and fetching resources from the internet.
-2. `streamlit`: Streamlit is a Python library for creating interactive web applications with simple Python scripts. It's often used for building data visualization dashboards and prototyping machine learning models.
-3. `streamlit_lottie`: This is an extension for Streamlit that allows you to embed Lottie animations into your Streamlit applications. Lottie is a library for rendering animations and graphics on the web.
-4. `PIL`: PIL stands for Python Imaging Library, which is a library for working with images in Python. It provides functionalities for opening, manipulating, and saving different image file formats.
-
-By importing these libraries, the code sets up the necessary tools and dependencies for building a Streamlit web application that can fetch data from web servers, display Lottie animations, and work with images.
-
-'''
-
 import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
 from PIL import Image
 
-'''
-This line of code configures the settings for the Streamlit web application. Let's break it down:
-
-1. `st.set_page_config`: This is a function provided by Streamlit for configuring various aspects of the application's page.
-
-2. `page_title="KABURA KURIA"`: This parameter sets the title of the web page that will be displayed in the browser tab. In this case, the title is set to "KABURA KURIA".
-
-3. `layout="wide"`: This parameter sets the layout style for the page. In Streamlit, there are two layout options: "wide" and "centered". The "wide" layout spreads the content across the full width of the page, while the "centered" layout centers the content in the middle of the page. In this case, the "wide" layout is chosen, indicating that the content will be displayed across the full width of the page.
-
-Overall, this line of code ensures that the Streamlit web application is configured with a specific page title ("KABURA KURIA") and a wide layout style for the content.
-'''
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="KABURA KURIA", layout="wide")
 
-'''
-This Python function, `load_lottieurl`, takes a URL as input and returns the JSON content retrieved from that URL using the `requests` library.
-
-Here's what each part of the function does:
-
-1. `r = requests.get(url)`: This line sends a GET request to the specified URL to fetch the content.
-
-2. `if r.status_code != 200:`: This condition checks if the status code of the response is not equal to 200, which indicates a successful request.
-
-3. `return None`: If the request was not successful (status code other than 200), the function returns `None` to indicate that the loading failed.
-
-4. `return r.json()`: If the request was successful, the function returns the JSON content of the response. The `json()` method of the response object parses the JSON data and returns it as a Python dictionary.
-
-Overall, this function is used to load JSON content from a URL, typically used for loading Lottie animations in Streamlit applications. If the loading is successful, it returns the JSON content; otherwise, it returns `None`.
-'''
 def load_lottieurl(url):
     r = requests.get(url)
     if r.status_code != 200:
         return None
     return r.json()
-'''
-This Python function, `local_css`, reads the content of a local CSS file and injects it into the Streamlit app using `st.markdown()` with the `unsafe_allow_html=True` parameter. Here's a breakdown of how it works:
-
-1. `def local_css(file_name):`: This defines the function `local_css` which takes the name of the CSS file as input.
-
-2. `with open(file_name) as f:`: This opens the specified CSS file in read mode.
-
-3. `st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)`: This line reads the content of the CSS file using `f.read()`, then injects it into the Streamlit app as HTML using `st.markdown()`. The `unsafe_allow_html=True` parameter allows Streamlit to render the HTML content without sanitizing it, which is necessary for injecting CSS styles.
-
-Overall, this function allows you to apply custom CSS styles to your Streamlit app by reading the content of a local CSS file and injecting it dynamically.
-'''
+    
 # Use local CSS
 def local_css(file_name):
     with open(file_name) as f:
@@ -91,37 +43,37 @@ with st.container():
         st.write("##")
         st.write(
             """
-           1. Social Media Timer: A timer feature that helps users manage their social media usage.
+            1. Social Media Timer: A timer feature that helps users manage their social media usage.
 
-2. Sensory Experience and Voice: Atunafsi will provide a sensory experience and voice feature that will enhance the user's experience.
-
-3. Find a Therapist - GPS: A GPS-enabled feature that helps users find a therapist in their area.
-
-4. Four User Roles: Atunafsi will have four user roles, including parent, psychologist, client under 18, and client above 18.
-
-5. Psychoeducation: A feature that provides users with educational resources related to mental health.
-
-6. Chat and Chat GPT: A chat feature that allows users to communicate with each other and a Chat GPT feature that provides automated responses.
-
-7. Customer Service and Emergency Helpline: A customer service feature that provides users with support and an emergency helpline feature that provides immediate assistance.
-
-8. Daraja API and Game Feature: Atunafsi will integrate the Daraja API for payment processing and a game feature that provides users with a fun and engaging experience.
-
-9. Crypto Feature: A crypto feature that allows users to use tokens or other forms of cryptocurrency.
-
-10. Light and Dark Mode: Atunafsi will have a light and dark mode feature that allows users to customize the app's appearance.
-
-11. Drawer and Calendar: A drawer feature that provides users with easy access to app features and a calendar feature that helps users manage their schedules.
-
-12. Analytics Dashboard and Progress Bars: An analytics dashboard that provides users with insights into their app usage and progress bars that track their progress.
-
-13. Journals: Atunafsi will have five journal features, including unexpected, social, emotional, cognitive, and physical.
-
-14. Social Factor Meter: A feature that helps users track their social interactions and relationships.
-
-15. Fitness and Well-being Features: Atunafsi will have fitness and well-being features that help users maintain a healthy lifestyle.
-
-16. Environmental Friendliness: Atunafsi will be designed to be environmentally friendly, with features that promote sustainability and reduce waste.
+            2. Sensory Experience and Voice: Atunafsi will provide a sensory experience and voice feature that will enhance the user's experience.
+            
+            3. Find a Therapist - GPS: A GPS-enabled feature that helps users find a therapist in their area.
+            
+            4. Four User Roles: Atunafsi will have four user roles, including parent, psychologist, client under 18, and client above 18.
+            
+            5. Psychoeducation: A feature that provides users with educational resources related to mental health.
+            
+            6. Chat and Chat GPT: A chat feature that allows users to communicate with each other and a Chat GPT feature that provides automated responses.
+            
+            7. Customer Service and Emergency Helpline: A customer service feature that provides users with support and an emergency helpline feature that provides immediate assistance.
+            
+            8. Daraja API and Game Feature: Atunafsi will integrate the Daraja API for payment processing and a game feature that provides users with a fun and engaging experience.
+            
+            9. Crypto Feature: A crypto feature that allows users to use tokens or other forms of cryptocurrency.
+            
+            10. Light and Dark Mode: Atunafsi will have a light and dark mode feature that allows users to customize the app's appearance.
+            
+            11. Drawer and Calendar: A drawer feature that provides users with easy access to app features and a calendar feature that helps users manage their schedules.
+            
+            12. Analytics Dashboard and Progress Bars: An analytics dashboard that provides users with insights into their app usage and progress bars that track their progress.
+            
+            13. Journals: Atunafsi will have five journal features, including unexpected, social, emotional, cognitive, and physical.
+            
+            14. Social Factor Meter: A feature that helps users track their social interactions and relationships.
+            
+            15. Fitness and Well-being Features: Atunafsi will have fitness and well-being features that help users maintain a healthy lifestyle.
+            
+            16. Environmental Friendliness: Atunafsi will be designed to be environmentally friendly, with features that promote sustainability and reduce waste.
             """
         )
        
