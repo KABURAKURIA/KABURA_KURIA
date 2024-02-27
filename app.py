@@ -155,8 +155,7 @@ with st.container():
         
         # Render the JavaScript code
         st.markdown(script, unsafe_allow_html=True)
-
-        )
+        
         st.markdown("[Watch Video...](https://youtu.be/FOULV9Xij_8)")
 
 # ---- CONTACT ----
